@@ -14,9 +14,9 @@
 	</ul>
 
 <div class="container">
-    <form name="book_form" method="post" action="insert">
+    <form name="book_form" method="post" action="${empty(book) ? 'insert' : 'update'}">
     <h2>
-        New Book Form
+        ${empty(book) ? 'New' : 'Edit'} Book Form
     </h2>
 	  <p><label>Title:</label>
     <input type="text" name="booktitle" /></p>
