@@ -15,16 +15,22 @@
 
 <div class="container">
     <form name="book_form" method="post" action="${empty(book) ? 'insert' : 'update'}">
+    <c:if test="${!empty(book)}">
+    	<input type="hidden" name="id" value="${book.id}"/>
+    </c:if>
     <h2>
         ${empty(book) ? 'New' : 'Edit'} Book Form
     </h2>
-	  <p><label>Title:</label>
-    <input type="text" name="booktitle" /></p>
-	  <p><label>Author:</label>
-    <input type="text" name="bookauthor" /></p>
-    <p><label>Price:</label>
-    <input type="text" name="bookprice" /></p>
-	  <p><input type="submit" value="Submit"></p>
+	  	<p><label>Title:</label>
+    	<input type="text" name="booktitle" value="${!empty(book) ? book.title : ''}" /></p>
+	  	
+	  	<p><label>Author:</label>
+    	<input type="text" name="bookauthor"  value="${!empty(book) ? book.author : ''}" /></p>
+    
+    	<p><label>Price:</label>
+    	<input type="text" name="bookprice" value="${!empty(book) ? book.price : ''}"  /></p>
+	  
+	  	<p><input type="submit" value="Submit"></p>
 	</form>
 	</div>
 </body>
